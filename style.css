@@ -85,3 +85,16 @@ footer {
     color: #aaa;
     font-size: 14px;
 }
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.hero h1 {
+    font-size: 48px;
+}
+
+.hero p {
+    color: #666;
+    margin-top: 10px;
+}
