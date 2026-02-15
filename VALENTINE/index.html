@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <link rel="icon" href="assets/images/logo_ready.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/logo_ready.png">
+    <!-- Preload critical images for faster loading -->
+    <link rel="preload" href="assets/images/second/book_bg.png" as="image">
+    <link rel="preload" href="assets/images/second/book_bg_back.png" as="image">
+    <link rel="preload" href="assets/images/intro/shooting_heart.gif" as="image">
+    <link rel="preload" href="assets/images/intro/left_cupid.png" as="image">
+    <link rel="preload" href="assets/images/intro/right_cupid.png" as="image">
+    <link rel="preload" href="assets/images/intro/double_heart.png" as="image">
+    <title>Valentine Gift ❤️</title>
+    <meta name="description"
+        content="Có người đã gửi cho bạn một món quà Valentine đặc biệt. Chạm để mở và khám phá...">
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://valentinepro.onrender.com/">
+    <meta property="og:title" content="Valentine Gift❤️">
+    <meta property="og:description"
+        content="Có người đã gửi cho bạn một món quà Valentine đặc biệt. Chạm để mở và khám phá...">
+    <meta property="og:image" content="https://valentinepro.onrender.com/assets/images/logo_ready_small.png">
+    <meta property="og:locale" content="vi_VN">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Valentine Gift❤️">
+    <meta name="twitter:description"
+        content="Có người đã gửi cho bạn một món quà Valentine đặc biệt. Chạm để mở và khám phá...">
+    <meta name="twitter:image" content="https://valentinepro.onrender.com/assets/images/logo_ready_small.png">
+    <link rel="stylesheet" href="intro_gift/intro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Sans+Arabic:wght@300;400;500;700&family=Noto+Sans+Devanagari:wght@300;400;500;700&family=Noto+Sans+Hebrew:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="final_gift/final.css">
+    
+    <!-- Preload Three.js để tránh lỗi trên iOS -->
+    <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.157.0/examples/jsm/"
+    }
+  }
+     </script>
+     
+     <!-- Fallback check cho iOS Safari không hỗ trợ import map -->
+     <script>
+         if (!HTMLScriptElement.supports || !HTMLScriptElement.supports('importmap')) {
+             console.warn('[iOS] Import map not supported, loading Three.js fallback');
+             // Load Three.js trực tiếp cho iOS cũ
+             var threeScript = document.createElement('script');
+             threeScript.type = 'module';
+             threeScript.textContent = 'window.THREE_FALLBACK_LOADED = true;';
+             document.head.appendChild(threeScript);
+         }
+     </script>
+    <style>
+        #finalScreen {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #200020 0%, #000000 100%);
+        }
+
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        input,
+        textarea {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+    </style>
+        <!-- Chặn DevTools -->
+        <script src="./detect-devtools.js"></script>
+        <script type='text/javascript'>
+            const keyName = 'key';
+            const keyValue = '9ac7ec230e0e4513578f309d6d3579ad';
+            DisableDevtool({
+                tkName: keyName,
+                md5: keyValue,
+                interval: '100',
+            });
+        </script>
+</head>
+
+<body>
+    <!-- Redirect khi không có ?id= (trang gốc = xem quà theo id) -->
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            if (!params.get('id')) {
+                window.location.replace('create_gift/create.html');
+                return;
+            }
+        })();
+    </script>
+
+    <div id="introScreen">
+        <video id="backgroundVideo" autoplay loop muted playsinline preload="auto">
+            <source id="videoSource" src="" type="video/mp4">
+        </video>
+        <canvas id="canvas"></canvas>
+        <div id="rotateNotice" style="display:none;">
+            <div class="overlay">
+                <p>Vui lòng xoay ngang màn hình để có trải nghiệm tốt nhất ❤️</p>
+                <p>Bật chế độ xoay ngang của điện thoại lên(mở qua safari,chrome..) ❤️</p>
+            </div>
+        </div>
+
+        <div id="readyToStartOverlay" class="ready-overlay" style="display:none;">
+            <div class="ready-overlay-inner">
+                <img class="ready-overlay-logo" src="assets/images/logo_ready.png" alt="" />
+                <button type="button" id="readyToStartBtn" class="ready-to-start-btn" aria-label="Bắt đầu">
+                    Sẵn sàng ❤️
+                </button>
+            </div>
+        </div>
+
+        <img id="leftCupid" src="assets/images/intro/left_cupid.png" alt="Left Cupid" />
+        <img id="rightCupid" src="assets/images/intro/right_cupid.png" alt="Right Cupid" />
+        <img id="doubleHeart" src="assets/images/intro/double_heart.png" alt="Double Heart" />
+        <div id="doubleHeartGlow" class="double-heart-glow" style="display:none;" aria-hidden="true"></div>
+        <img id="giftBox" src="assets/images/second/gift-box.png" alt="Gift Box" style="display:none;" />
+        <img id="noFinalGiftImg" src="assets/images/second/no_finalgift.gif" alt="" style="display:none;" aria-hidden="true" />
+        <div id="giftBoxGlow" class="double-heart-glow" style="display:none;" aria-hidden="true"></div>
+        <img id="leftBottom" src="assets/images/intro/left_bottom.png" alt="Left Bottom" />
+        <img id="rightBottom" src="assets/images/intro/right_bottom.png" alt="Right Bottom" />
+        <img id="bear" src="assets/images/intro/shooting_heart.gif" alt="Bear" />
+        <button type="button" id="openBookBtn" class="open-book-btn" aria-label="Mở sách" title="Chạm để tiếp tục"
+            style="display: none;">
+            <img class="open-book-arrow" src="assets/images/second/arrow.png" alt="">
+            <img src="assets/images/second/book.png" alt="">
+        </button>
+    </div>
+
+    <div id="secondScreen" aria-hidden="true">
+        <div class="container" id="container">
+            <div class="book-content trnsf-reset">
+                <div class="book">
+                    <div class="face-front" id="portada"></div>
+                    <div class="face-back" id="trsf">
+                        <div class="page-text">
+                            Gửi em yêu dấu của anh,
+
+                            Hôm nay là một ngày đặc biệt, ngày mà anh muốn nói với em những điều từ sâu trong trái tim
+                            mình. Em biết không, từ ngày em bước vào cuộc đời anh, mọi thứ đã thay đổi hoàn toàn. Em
+                            không chỉ là người yêu của anh, mà còn là người bạn đồng hành, là nguồn cảm hứng và là lý do
+                            để anh cố gắng mỗi ngày.
+
+                            Anh muốn cảm ơn em vì đã ở bên cạnh anh, vì đã kiên nhẫn và yêu thương anh vô điều kiện. Em
+                            là ánh sáng trong cuộc đời anh, là ngôi sao sáng nhất trên bầu trời đêm.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book">
+                    <div class="face-front" id="bg-ft1">
+                        <img class="page-image" src="assets/images/second/bookPortada.jpg" alt="">
+                    </div>
+                    <div class="face-back">
+                        <div class="page-text">
+                            Mỗi sáng thức dậy, điều đầu tiên anh nghĩ đến là em. Mỗi buổi tối trước khi ngủ, anh luôn
+                            cảm thấy biết ơn vì có em trong cuộc đời mình. Em đã mang đến cho anh những khoảnh khắc hạnh
+                            phúc nhất, những nụ cười chân thành nhất, và cả những giọt nước mắt khi chúng ta cùng nhau
+                            vượt qua khó khăn.
+
+                            Anh yêu cách em quan tâm đến mọi người xung quanh, yêu nụ cười rạng rỡ của em, yêu cả những
+                            lúc em giận dỗi đáng yêu. Em hoàn hảo trong mắt anh, không phải vì em không có khuyết điểm,
+                            mà vì anh yêu cả những điều đó.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book">
+                    <div class="face-front" id="bg-ft2">
+                        <img class="page-image" src="assets/images/second/cover.png" alt="">
+                    </div>
+                    <div class="face-back">
+                        <div class="page-text">
+                            Anh nhớ những lần chúng ta cùng nhau đi dạo dưới ánh trăng, những lần ngồi cạnh nhau im lặng
+                            nhưng vẫn cảm nhận được sự ấm áp. Anh nhớ những bữa ăn chúng ta cùng nấu, những chuyến đi
+                            chúng ta cùng trải nghiệm, và cả những khoảnh khắc bình dị nhất khi chỉ cần có em bên cạnh.
+
+                            Em không chỉ là người yêu, mà còn là người bạn tốt nhất của anh. Chúng ta có thể chia sẻ mọi
+                            thứ với nhau, từ những niềm vui nhỏ nhất đến những nỗi buồn sâu kín nhất. Em hiểu anh hơn
+                            bất kỳ ai, và anh cũng muốn hiểu em nhiều hơn nữa.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book">
+                    <div class="face-front">
+                        <img class="page-image" src="assets/images/second/ilove.jpg" alt="">
+                    </div>
+                    <div class="face-back" id="portada-back">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="finalLoadingScreen" class="final-loading" aria-hidden="true" style="display: none;">
+        <div class="loading-container">
+            <div class="loading-text">Valentine...</div>
+            <div class="loading-progress-wrapper">
+                <div class="loading-progress-bar" id="loadingProgressBar">
+                    <div class="loading-progress-fill" id="loadingProgressFill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="finalScreen" aria-hidden="true" style="display: none;">
+    </div>
+
+    <script src="intro_gift/intro.js"></script>
+    <script type="module">
+        const SERVER_URL_PROD = 'https://giftoryserver.onrender.com';
+        const API_GET_VALENTINE_URL = SERVER_URL_PROD + '/api/valentines';
+
+        async function getValentineById(valentineId) {
+            try {
+                const url = `${API_GET_VALENTINE_URL}/${valentineId}`;
+                const response = await fetch(url);
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('[API] Error response:', errorText);
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const result = await response.json();
+                if (result.success && result.data) {
+                    return result.data;
+                } else {
+                    throw new Error(result.error || 'Không tìm thấy quà');
+                }
+            } catch (error) {
+                console.error('❌ Error fetching Valentine:', error);
+                throw error;
+            }
+        }
+
+        function getGiftIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        (async function () {
+            try {
+                if (document.readyState === 'loading') {
+                    await new Promise(resolve => {
+                        document.addEventListener('DOMContentLoaded', resolve);
+                    });
+                }
+                const valentineId = getGiftIdFromUrl();
+                if (!valentineId) return;
+
+                const valentineData = await getValentineById(valentineId);
+                if (!valentineData) return;
+
+                // Món quà cuối: enable=false → sau khi ẩn cupid/double heart hiển thị no_finalgift.gif, không hiển thị gift-box
+                window.hasFinalGift = !!(valentineData.final && valentineData.final.enabled !== false);
+
+                if (valentineData.intro && valentineData.intro.recipientName) {
+                    const newFullText = ["Happy Valentine", valentineData.intro.recipientName + " ❤️"];
+                    window.fullText = newFullText;
+                    if (typeof fullText !== 'undefined') {
+                        fullText[0] = newFullText[0];
+                        fullText[1] = newFullText[1];
+                    }
+                }
+
+                if (valentineData.intro && valentineData.intro.backgroundMusic) {
+                    const musicData = valentineData.intro.backgroundMusic;
+                    let musicUrl = '';
+                    if (musicData.type === 'file' && musicData.url) {
+                        musicUrl = musicData.url;
+                    } else if ((musicData.type === 'sample' || musicData.type === 'preset') && musicData.path) {
+                        musicUrl = (musicData.path.indexOf('/') === 0 ? '' : '/') + musicData.path;
+                    }
+                    if (musicUrl) {
+                        const audio = new Audio(musicUrl);
+                        audio.loop = true;
+                        audio.volume = 0.7;
+                        window.backgroundMusic = audio;
+                        if (window.userHasClickedReady) {
+                            audio.play().catch(function (err) { console.warn('[Load Valentine] Không thể phát nhạc:', err); });
+                        }
+                    }
+                }
+
+                if (valentineData.book && valentineData.book.pages && Array.isArray(valentineData.book.pages)) {
+                    const pages = valentineData.book.pages;
+                    const assetsBase = 'assets/images/second/bookPortada.jpg';
+
+                    function createDynamicBooks() {
+                        const bookContent = document.querySelector('.book-content');
+                        if (!bookContent) {
+                            setTimeout(createDynamicBooks, 100);
+                            return;
+                        }
+                        if (!pages.length) return;
+
+                        const allBooks = bookContent.querySelectorAll('.book');
+                        let coverBook = null;
+                        allBooks.forEach(function (book) {
+                            if (!coverBook && book.querySelector('#portada')) coverBook = book;
+                        });
+
+                        if (!coverBook) {
+                            bookContent.innerHTML = '';
+                            pages.forEach(function (page, index) {
+                                const bookElement = document.createElement('div');
+                                bookElement.className = 'book';
+                                const faceFront = document.createElement('div');
+                                faceFront.className = 'face-front';
+                                const imageElement = document.createElement('img');
+                                imageElement.className = 'page-image';
+                                imageElement.alt = 'Page ' + (index + 1);
+                                imageElement.crossOrigin = 'anonymous';
+                                if (page.image) imageElement.src = page.image;
+                                else if (page.imageUrl) imageElement.src = page.imageUrl;
+                                else imageElement.src = assetsBase;
+                                imageElement.onerror = function () { this.src = assetsBase; };
+                                faceFront.appendChild(imageElement);
+                                const faceBack = document.createElement('div');
+                                faceBack.className = 'face-back';
+                                const textElement = document.createElement('div');
+                                textElement.className = 'page-text';
+                                textElement.textContent = index === 0 ? '' : (page.text || '');
+                                faceBack.appendChild(textElement);
+                                if (index === pages.length - 1) faceBack.id = 'portada-back';
+                                bookElement.appendChild(faceFront);
+                                bookElement.appendChild(faceBack);
+                                bookContent.appendChild(bookElement);
+                            });
+                        } else {
+                            allBooks.forEach(function (book) {
+                                if (book !== coverBook) book.remove();
+                            });
+                            const coverBack = coverBook.querySelector('.face-back');
+                            if (coverBack) {
+                                let coverText = coverBack.querySelector('.page-text');
+                                if (!coverText) {
+                                    coverText = document.createElement('div');
+                                    coverText.className = 'page-text';
+                                    coverBack.appendChild(coverText);
+                                }
+                                coverText.textContent = pages[0].text || '';
+                            }
+                            for (let i = 0; i < pages.length; i++) {
+                                const page = pages[i];
+                                const isLastBook = i === pages.length - 1;
+                                const bookElement = document.createElement('div');
+                                bookElement.className = 'book';
+                                const faceFront = document.createElement('div');
+                                faceFront.className = 'face-front';
+                                const imageElement = document.createElement('img');
+                                imageElement.className = 'page-image';
+                                imageElement.alt = 'Page ' + (i + 1);
+                                imageElement.crossOrigin = 'anonymous';
+                                if (page.image) imageElement.src = page.image;
+                                else if (page.imageUrl) imageElement.src = page.imageUrl;
+                                else imageElement.src = assetsBase;
+                                imageElement.onerror = function () { this.src = assetsBase; };
+                                faceFront.appendChild(imageElement);
+                                const faceBack = document.createElement('div');
+                                faceBack.className = 'face-back';
+                                if (isLastBook) {
+                                    faceBack.id = 'portada-back';
+                                } else {
+                                    const nextPage = pages[i + 1];
+                                    const textElement = document.createElement('div');
+                                    textElement.className = 'page-text';
+                                    textElement.textContent = nextPage.text || '';
+                                    faceBack.appendChild(textElement);
+                                }
+                                bookElement.appendChild(faceFront);
+                                bookElement.appendChild(faceBack);
+                                bookContent.appendChild(bookElement);
+                            }
+                        }
+
+                        const totalPageCount = pages.length;
+                        if (typeof window !== 'undefined' && window.setTotalFlips) window.setTotalFlips(totalPageCount);
+                        else if (typeof totalFlips !== 'undefined') window.totalFlips = totalPageCount;
+                        setTimeout(function () {
+                            if (typeof window !== 'undefined' && window.reinitializeBookFlip) window.reinitializeBookFlip();
+                        }, 100);
+                    }
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', createDynamicBooks);
+                    } else {
+                        createDynamicBooks();
+                    }
+                }
+
+                if (!window.dataMemoryHeartLoveLoom) window.dataMemoryHeartLoveLoom = {};
+                if (!window.dataMemoryHeartLoveLoom.data) window.dataMemoryHeartLoveLoom.data = {};
+                if (valentineData.final && valentineData.final.wishes && Array.isArray(valentineData.final.wishes)) {
+                    const wishes = valentineData.final.wishes.filter(function (w) { return w && w.trim(); });
+                    window.dataMemoryHeartLoveLoom.data.messages = wishes;
+                    window.WISH_SENTENCES = wishes;
+                } else {
+                    window.dataMemoryHeartLoveLoom.data.messages = [];
+                    window.WISH_SENTENCES = [];
+                }
+                let bookImages = [];
+                if (valentineData.book && valentineData.book.pages && Array.isArray(valentineData.book.pages)) {
+                    valentineData.book.pages.forEach(function (page) {
+                        if (page.image) bookImages.push(page.image);
+                    });
+                }
+                const TARGET_IMAGE_COUNT = 8;
+                let finalImages = [];
+                if (bookImages.length >= TARGET_IMAGE_COUNT) finalImages = bookImages.slice(0, TARGET_IMAGE_COUNT);
+                else if (bookImages.length > 0) {
+                    for (let i = 0; i < TARGET_IMAGE_COUNT; i++) {
+                        finalImages.push(bookImages[i % bookImages.length]);
+                    }
+                }
+                window.dataMemoryHeartLoveLoom.data.images = finalImages;
+            } catch (error) {
+                console.error('[Load Valentine] ❌ Lỗi:', error);
+            }
+        })();
+    </script>
+    <script src="second_gift/second.js"></script>
+</body>
+
+</html>
