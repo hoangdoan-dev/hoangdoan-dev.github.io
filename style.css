@@ -6,39 +6,62 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f6f8ff, #eef1ff);
+    background: #f5f7fb;
+    color: #222;
 }
 
+/* ===== Container chuẩn ===== */
 .container {
     max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 80px 20px;
 }
 
-h1 {
-    font-size: 40px;
-    margin-bottom: 40px;
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.hero h1 {
+    font-size: 48px;
     font-weight: 700;
+    margin-bottom: 15px;
 }
 
+.hero p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* ===== TEMPLATES TITLE ===== */
+.section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ===== CARD GRID ===== */
 .templates {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    display: flex;
+    justify-content: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
+/* ===== CARD ===== */
 .card {
+    width: 350px;
     background: #fff;
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
     transition: 0.3s ease;
 }
 
-
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
@@ -57,17 +80,19 @@ h1 {
 }
 
 .card p {
-    font-size: 14px;
     color: #666;
     margin-bottom: 20px;
 }
 
+/* ===== BUTTON ===== */
 .demo-btn {
+    display: inline-block;
+    padding: 10px 24px;
     background: linear-gradient(45deg, #ff4d8d, #ff7eb3);
-    border-radius: 40px;
-    padding: 8px 20px;
     color: white;
     text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
     transition: 0.3s;
 }
 
@@ -75,29 +100,11 @@ h1 {
     opacity: 0.85;
 }
 
-
-.demo-btn:hover {
-    background: linear-gradient(45deg, #ff2d75, #ff5fa2);
-}
-
+/* ===== FOOTER ===== */
 footer {
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 30px 0;
     text-align: center;
     background: #111;
     color: #aaa;
-    font-size: 14px;
-}
-.hero {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.hero h1 {
-    font-size: 48px;
-}
-
-.hero p {
-    color: #666;
-    margin-top: 10px;
 }
