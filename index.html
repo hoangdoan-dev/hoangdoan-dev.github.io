@@ -11,19 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<script>
-  if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
-<button onclick="logout()">Logout</button>
-
-<script>
-  function logout() {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "login.html";
-  }
-</script>
 
 <div class="container">
 
