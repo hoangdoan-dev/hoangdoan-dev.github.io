@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pháo hoa năm mới free</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="theme-color" content="#000000">
-
-  <!-- Icon -->
-  <link rel="icon" type="image/png" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/firework-burst-icon-v2.png">
-
-  <!-- Google Font (API mới) -->
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-
-  <!-- Reset CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-  <!-- File CSS nội bộ -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng năm mới</title>
+    <link rel="stylesheet" href="./styles.css">
+ 
 </head>
-
 <body>
-
-<div class="container">
-
-  <div class="loading-init">
-    <div class="loading-init__header">Loading</div>
-    <div class="loading-init__status">Assembling Shells</div>
-  </div>
-
-  <div class="stage-container remove">
-    <div class="canvas-container">
-      <canvas id="trails-canvas"></canvas>
-      <canvas id="main-canvas"></canvas>
+    <canvas id="cas"></canvas>
+    <div id="Merry" class="christmas-message">Chúc mừng năm mới</div>
+    <img class="tree-icon">
+    <audio id="audio" src="./tet.mp3"></audio>
+    <div class="container">
+        <button id="showButton">
+            Thân gửi
+        </button>
     </div>
-  </div>
 
-</div>
+    <div id="guideInfo" class="hidden">
+        <button id="closeButton" class="close-btn">X</button>
+        <div class="card">
+            <div class="imgBox">
+                <div class="bark"></div>
+                <img src="image/anhtet.png" alt="line slow">
+            </div>
+            <div class="details">
+                <h4 class="color1"></h2>
+                    <h4 class="color2 margin">Chúc mừng năm mới!</h3>
+                        <p><br></p>
+                        <p> </p>
+                        <p>Chúc cậu một năm mới an khang,</p>
+                        <p> thịnh vượng, vạn sự như ý,</p>
+                        <p> sức khỏe dồi dào và luôn </p>
+                        <p> tràn đầy niềm vui.</p>
+                        <p>Hy vọng mọi điều tốt đẹp sẽ đến </p>
+                        <p>với cậu trong năm nay!</p>
+                        <p><br></p>
+                        <p class="text-right">Best regards</p>
+            </div>
+        </div>
+    </div>
 
-<!-- Scripts -->
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/fscreen%401.0.1.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/Stage%400.1.4.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/329180/MyMath.js"></script>
-
-<!-- File JS nội bộ -->
-<script src="script.js"></script>
-
+    <script src="./script.js"></script>
+    <script>
+        document.body.addEventListener("click", function() {
+             var audio = document.getElementById("audio");
+             audio.play();
+         });
+     </script>
 </body>
 </html>
