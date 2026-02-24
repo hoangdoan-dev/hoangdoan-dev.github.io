@@ -12,7 +12,7 @@
     <canvas id="cas"></canvas>
     <div id="Merry" class="christmas-message">Chúc mừng năm mới</div>
     <img class="tree-icon">
-    <audio id="audio" src="./tet.mp3"></audio>
+    <audio id="audio" src="./HappyNewYear.mp3" autoplay loop></audio>
     <div class="container">
         <button id="showButton">
             Thân gửi
@@ -47,10 +47,18 @@
 
     <script src="./script.js"></script>
     <script>
-        document.body.addEventListener("click", function() {
-             var audio = document.getElementById("audio");
-             audio.play();
-         });
-     </script>
+window.addEventListener("load", function () {
+    const audio = document.getElementById("audio");
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            console.log("Trình duyệt chặn autoplay.");
+        });
+    }
+});
+</script>
 </body>
 </html>
+
