@@ -66,11 +66,18 @@
 
     <script src="main.js?v=1"></script>
     <script>
-        document.body.addEventListener("click", function() {
-             var audio = document.getElementById("audio");
-             audio.play();
-         });
-     </script>
+window.addEventListener("load", function () {
+    const audio = document.getElementById("audio");
+
+    const playPromise = audio.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            console.log("Trình duyệt chặn autoplay.");
+        });
+    }
+});
+</script>
 </body>
 
 </html>
