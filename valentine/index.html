@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    <audio id="audio" src="./valentine.mp3"></audio>
     <div class="container">
         <img class="paperHeart paperHeart1" style="--time: 0s" src="./img/paperHeart.webp" alt="">
         <img class="paperHeart paperHeart2" style="--time: 1s" src="./img/paperHeart.webp" alt="">
@@ -64,6 +65,12 @@
     </div>
 
     <script src="main.js?v=1"></script>
+    <script>
+        document.body.addEventListener("click", function() {
+             var audio = document.getElementById("audio");
+             audio.play();
+         });
+     </script>
 </body>
 
 </html>
