@@ -78,14 +78,12 @@ html, body {
     left: -50px;
 }
 
-.container.active.close {
-    .btnBox {
-        animation: disappearBtn 1s ease-in-out forwards;
-    }
+.container.active.close .btnBox {
+    animation: disappearBtn 1s ease-in-out forwards;
+}
 
-    .boxTitle {
-        animation: disappearBoxTitle 1s ease-in-out forwards;
-    }
+.container.active.close .boxTitle {
+    animation: disappearBoxTitle 1s ease-in-out forwards;
 }
 
 @keyframes disappearBtn {
@@ -326,17 +324,14 @@ html, body {
 }
 
 /* OPEN */
-.container.active.open {
-    .boxTitle {
-        animation: none;
-        top: -40%;
-    }
+.container.active.open .boxTitle {
+    animation: none;
+    top: -40%;
+}
 
-    .btnBox {
-        animation: none;
-        top: 140%;
-    }
-    
+.container.active.open .btnBox {
+    animation: none;
+    top: 140%;
 }
 
 .cardValentine {
@@ -529,24 +524,16 @@ html, body {
     font-style: normal;
 }
 
-.cardValentine.active.open {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.cardValentine.active.open .left {
+    transform-style: preserve-3d;
+    transform: rotateY(-180deg);
+    transform-origin: left;
+    background-color: red;
     transition: .5s;
+}
 
-    .left {
-        transform-style: preserve-3d;
-        transform: rotateY(-180deg);
-        transform-origin: left;
-        background-color: red;
-        transition: .5s;
-    }
-
-    .leftFront {
-        backface-visibility: hidden;
-    }
-
+.cardValentine.active.open .leftFront {
+    backface-visibility: hidden;
 }
 
 @keyframes appearTitle {
