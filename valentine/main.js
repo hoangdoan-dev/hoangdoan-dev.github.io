@@ -1,5 +1,5 @@
 // Thay đổi nội dung búc thư ở đây
-var letterContent = "Năm mới cũng gần kề cận rồi tớ xin chúc cậu năm nay học thật giỏi nhiều niềm vui và hạnh phúc đặc biệt là đỗ nv1 neu mà cậu luôn mong muốn và tớ cũng xin gửi lời chúc đến gia đình Ngọc Minh những điều tốt đẹp nhất nhaa"
+var letterContent = "Chúc Vũ Hà Linh một ngày Valentine thật ấm áp, luôn được yêu thương và trân trọng. Mong rằng những điều tốt đẹp nhất sẽ đến với hlinh hôm nay và mỗi ngày sau này."
 
 // Tốc độ viết chữ. Số càng nhỏ tốc độ càng nhanh. 50 là tốc độ khá phù hợp
 durationWrite = 50 
@@ -42,4 +42,5 @@ cardValentine.addEventListener("click", () => {
         }, 1000)
     }
 })
+
 
