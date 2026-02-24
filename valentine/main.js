@@ -1,11 +1,5 @@
 // Thay đổi nội dung búc thư ở đây
-var letterContent = "Chúc Vũ Hà Linh một ngày Valentine không chỉ ngọt ngào mà còn thật ý nghĩa.
-
-Chúc cậu luôn vững vàng với quan điểm của mình, luôn giữ được sự sắc sảo, tỉnh táo và tinh thần làm việc nghiêm túc đã tạo nên dấu ấn rất riêng. Mong rằng mọi nỗ lực thầm lặng phía sau mỗi nội dung cậu làm ra đều được nhìn nhận xứng đáng, và mọi dự định sắp tới đều tiến triển đúng như kỳ vọng, thậm chí vượt xa mong đợi.
-
-Valentine là ngày của yêu thương, nhưng cũng là ngày để trân trọng hành trình mình đã đi qua. Chúc cậu luôn tin vào giá trị của bản thân, không ngừng phát triển và ngày càng thành công hơn nữa trên con đường mình đã chọn.
-
-Chúc cậu một mùa Valentine đủ ấm để an tâm, đủ động lực để bứt phá và đủ niềm vui để mỉm cười thật nhiều."
+var letterContent = "Chúc Vũ Hà Linh một ngày Valentine không chỉ ngọt ngào mà còn thật ý nghĩa. Chúc cậu luôn vững vàng với quan điểm của mình, luôn giữ được sự sắc sảo, tỉnh táo và tinh thần làm việc nghiêm túc đã tạo nên dấu ấn rất riêng. Mong rằng mọi nỗ lực thầm lặng phía sau mỗi nội dung cậu làm ra đều được nhìn nhận xứng đáng, và mọi dự định sắp tới đều tiến triển đúng như kỳ vọng, thậm chí vượt xa mong đợi. Valentine là ngày của yêu thương, nhưng cũng là ngày để trân trọng hành trình mình đã đi qua. Chúc cậu luôn tin vào giá trị của bản thân, không ngừng phát triển và ngày càng thành công hơn nữa trên con đường mình đã chọn. Chúc cậu một mùa Valentine đủ ấm để an tâm, đủ động lực để bứt phá và đủ niềm vui để mỉm cười thật nhiều."
 
 // Tốc độ viết chữ. Số càng nhỏ tốc độ càng nhanh. 50 là tốc độ khá phù hợp
 durationWrite = 50 
@@ -48,6 +42,7 @@ cardValentine.addEventListener("click", () => {
         }, 1000)
     }
 })
+
 
 
 
