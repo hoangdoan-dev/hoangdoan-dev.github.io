@@ -1118,11 +1118,14 @@
                 setTimeout(textCharLetter, 30);
             }
             else {
-                clearInterval(timoutTextLetter);
-                setTimeout(() => {
-                    funcTimeoutLetterContent()
-                }, 500)
-            }
+    clearInterval(timoutTextLetter);
+
+    // đợi 1s rồi xoá tiêu đề
+    setTimeout(() => {
+        textLetter.textContent = "";
+        funcTimeoutLetterContent();
+    }, 1000);
+}
         }
         function funcTimeoutLetter() {
             indexText = 0; // Reset indexText
