@@ -1,573 +1,358 @@
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHCODE - Premium Source Code Marketplace</title>
+  <meta name="description" content="DHCODE provides premium website templates, source code and developer tools." />
 
-    <meta name="description" content="Lovely - nơi tạo và chia sẻ những mẫu web yêu thương">
-    <meta name="keywords" content="love, template, website, thiệp online">
+  <!-- Open Graph -->
+  <meta property="og:title" content="DHCODE - Premium Source Code Marketplace" />
+  <meta property="og:description" content="DHCODE provides premium website templates, source code and developer tools." />
+  <meta property="og:image" content="assets/images/logo.png" />
+  <meta property="og:type" content="website" />
 
-    <title>Lovely ❤️</title>
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
 
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
-
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animation.css" />
 </head>
-
-<!-- MUSIC -->
-
-<audio id="music" loop>
-    <source src="./assets/music.mp3">
-</audio>
-
-
-<button id="music-btn">
-    🎵
-</button>
-
-
-
-<!-- HEART EFFECT -->
-
-<div id="hearts"></div>
-
-
-<!-- LOGIN -->
-
-
-<div id="login-modal">
-
-
-<div class="login-box">
-
-
-<h2>
-Đăng nhập
-</h2>
-
-
-<input 
-placeholder="Email"
-id="email"
->
-
-
-<input
-placeholder="Mật khẩu"
-type="password"
-id="password"
->
-
-
-
-<button id="login-btn">
-Đăng nhập
-</button>
-
-
-
-</div>
-
-
-</div>
 <body>
 
-
-<!-- ================= LOADING ================= -->
-
-<div id="loading-screen">
-
-    <div class="spinner"></div>
-
-    <div class="loading-text">
-        Loading
+  <!-- ============================================================
+       LOADING SCREEN
+  ============================================================= -->
+  <div id="loading-screen">
+    <canvas id="loading-particles"></canvas>
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="logo-bracket">&lt;</span>DHCODE<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="loading-text">Initializing DHCODE<span id="loading-dots"></span></p>
+      <div class="loading-bar"><div class="loading-bar-fill"></div></div>
     </div>
+  </div>
 
-</div>
-
-
-
-<!-- ================= INTRO ================= -->
-
-
-<div id="intro">
-
+  <!-- ============================================================
+       INTRO ANIMATION
+  ============================================================= -->
+  <div id="intro-screen">
     <div class="intro-content">
-
-        <h1>
-            Lovely ❤️
-        </h1>
-
-        <p>
-            Chào mừng bạn đến với vũ trụ tình yêu
-        </p>
-
+      <h1 class="intro-logo"><span class="logo-bracket">&lt;</span>DHCODE<span class="logo-bracket">/&gt;</span></h1>
+      <p class="intro-tagline">
+        <span class="tagline-word">Create.</span>
+        <span class="tagline-word">Code.</span>
+        <span class="tagline-word">Inspire.</span>
+      </p>
     </div>
+  </div>
 
-</div>
+  <!-- ============================================================
+       BACKGROUND LAYERS
+  ============================================================= -->
+  <div class="bg-layer">
+    <div class="bg-gradient"></div>
+    <div class="bg-grid"></div>
+    <canvas id="bg-particles"></canvas>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+  </div>
 
+  <!-- ============================================================
+       HEADER
+  ============================================================= -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-code"></i></span>
+        <span class="brand-name">DHCODE</span>
+      </a>
 
-
-
-<!-- ================= BACKGROUND ================= -->
-
-
-<canvas id="stars"></canvas>
-
-
-
-
-
-<!-- ================= HEADER ================= -->
-
-
-<header>
-
-
-<div class="header-container">
-
-
-    <div class="logo">
-
-        <img src="./assets/logo.png">
-
-        <span>
-            Lovely
-        </span>
-
-    </div>
-
-
-
-
-    <div class="header-actions">
-
-
-        <div class="category-box">
-
-
-            <button id="category-btn">
-
-                Khám phá
-                <i class="fa-solid fa-chevron-down"></i>
-
-            </button>
-
-
-
-            <div id="category-menu">
-
-
-                <div data-category="all">
-                    Tất cả
-                </div>
-
-
-                <div data-category="love">
-                    Tình yêu ❤️
-                </div>
-
-
-                <div data-category="couple">
-                    Cặp đôi 💑
-                </div>
-
-
-                <div data-category="birthday">
-                    Sinh nhật 🎂
-                </div>
-
-
-                <div data-category="wedding">
-                    Thiệp cưới 💍
-                </div>
-
-
-                <div data-category="tool">
-                    Tool 🛠
-                </div>
-
-
-                <div data-category="game">
-                    Game 🎮
-                </div>
-
-
-            </div>
-
-
+      <div class="header-center">
+        <div class="nav-dropdown" id="nav-dropdown">
+          <button class="explore-btn" id="explore-btn">
+            Explore <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="dropdown-panel" id="dropdown-panel">
+            <button class="dropdown-item" data-category="website"><i class="fa-solid fa-desktop"></i> Website Template</button>
+            <button class="dropdown-item" data-category="landing"><i class="fa-solid fa-globe"></i> Landing Page</button>
+            <button class="dropdown-item" data-category="game"><i class="fa-solid fa-gamepad"></i> Game Source</button>
+            <button class="dropdown-item" data-category="tool"><i class="fa-solid fa-screwdriver-wrench"></i> Developer Tool</button>
+            <button class="dropdown-item" data-category="ai"><i class="fa-solid fa-robot"></i> AI Project</button>
+            <button class="dropdown-item" data-category="app"><i class="fa-solid fa-mobile-screen-button"></i> App Source</button>
+            <button class="dropdown-item" data-category="ui"><i class="fa-solid fa-palette"></i> UI Template</button>
+            <button class="dropdown-item" data-category="trending"><i class="fa-solid fa-fire"></i> Trending</button>
+          </div>
         </div>
 
+        <div class="header-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="header-search-input" placeholder="Tìm source code, template, tool..." autocomplete="off" />
+          <div class="search-suggestions" id="search-suggestions"></div>
+        </div>
+      </div>
 
-
-
-
-        <input 
-        id="search"
-        placeholder="Tìm kiếm..."
-        >
-
-
-
-
-
-        <button id="donate">
-
-            ☕ Ủng hộ
-
-        </button>
-
-
-
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="login-btn">Đăng nhập</button>
+        <button class="btn btn-primary" id="upload-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</button>
+        <button class="header-burger" id="header-burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
     </div>
+  </header>
 
+  <main>
+    <!-- ============================================================
+         HERO
+    ============================================================= -->
+    <section class="hero">
+      <div class="hero-eyebrow"><span class="dot-pulse"></span> Marketplace cho developer</div>
+      <h1 class="hero-title">
+        Source code chất lượng.<br />
+        <span class="hero-title-gradient">Ra mắt sản phẩm nhanh hơn.</span>
+      </h1>
+      <p class="hero-subtitle">
+        DHCODE là nơi chia sẻ và mua bán source code, template, tool và dự án AI
+        được tuyển chọn kỹ càng — sẵn sàng để bạn triển khai ngay hôm nay.
+      </p>
+      <div class="hero-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="hero-search-input" placeholder='Thử tìm "portfolio", "landing page", "ai tool"...' autocomplete="off" />
+        <div class="search-suggestions" id="hero-search-suggestions"></div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="hero-stat-num">20+</span><span class="hero-stat-label">Sản phẩm</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-label">Danh mục</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">100%</span><span class="hero-stat-label">Vanilla JS</span></div>
+      </div>
+    </section>
 
-</div>
+    <!-- ============================================================
+         FEATURED / TRENDING CAROUSEL
+    ============================================================= -->
+    <section class="section trending-section">
+      <div class="section-head">
+        <h2><i class="fa-solid fa-fire"></i> Trending Source</h2>
+        <div class="carousel-controls">
+          <button id="carousel-prev" class="carousel-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button id="carousel-next" class="carousel-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carousel-track"></div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots"></div>
+    </section>
 
+    <!-- ============================================================
+         PRODUCT LISTING
+    ============================================================= -->
+    <section class="section products-section" id="products-section">
+      <div class="section-head">
+        <h2><i class="fa-solid fa-layer-group"></i> Khám phá sản phẩm</h2>
+      </div>
 
-</header>
+      <div class="category-chips" id="category-chips"></div>
 
+      <div class="product-grid" id="product-grid"></div>
 
+      <div class="empty-state" id="empty-state" hidden>
+        <i class="fa-solid fa-ghost"></i>
+        <p>Không tìm thấy sản phẩm phù hợp. Thử từ khoá khác nhé.</p>
+      </div>
 
+      <div class="pagination" id="pagination"></div>
+    </section>
+  </main>
 
-
-
-
-<!-- ================= HOT PRODUCTS ================= -->
-
-
-<section class="hot-section">
-
-
-<h2>
-    Mẫu được xem nhiều 🔥
-</h2>
-
-
-
-<div class="carousel">
-
-
-    <button id="prev">
-        ❮
-    </button>
-
-
-    <div id="hot-products">
-
-        <!-- JS thêm sản phẩm -->
-
+  <!-- ============================================================
+       PRODUCT DETAIL MODAL
+  ============================================================= -->
+  <div class="modal-overlay" id="product-modal-overlay">
+    <div class="modal product-modal" id="product-modal">
+      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+      <div class="product-modal-media">
+        <div class="product-modal-preview" id="modal-preview"><i class="fa-solid fa-image"></i></div>
+      </div>
+      <div class="product-modal-body">
+        <span class="modal-category" id="modal-category">Category</span>
+        <h3 class="modal-title" id="modal-title">Product name</h3>
+        <div class="modal-rating" id="modal-rating"></div>
+        <p class="modal-description" id="modal-description">Description</p>
+        <div class="modal-meta">
+          <span><i class="fa-solid fa-user"></i> <span id="modal-author">Author</span></span>
+          <span class="modal-price" id="modal-price">Price</span>
+        </div>
+        <div class="modal-actions">
+          <a href="#" class="btn btn-ghost" id="modal-demo-btn" target="_blank"><i class="fa-solid fa-globe"></i> Live Demo</a>
+          <a href="#" class="btn btn-primary" id="modal-download-btn"><i class="fa-solid fa-download"></i> Download Source</a>
+          <button class="btn btn-outline" id="modal-contact-btn"><i class="fa-solid fa-comment-dots"></i> Contact</button>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <!-- ============================================================
+       LOGIN / REGISTER MODAL
+  ============================================================= -->
+  <div class="modal-overlay" id="auth-modal-overlay">
+    <div class="modal auth-modal">
+      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Đăng nhập</button>
+        <button class="auth-tab" data-tab="register">Đăng ký</button>
+      </div>
+      <form class="auth-form" id="auth-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" placeholder="you@email.com" required />
+        </label>
+        <label class="field">
+          <span>Mật khẩu</span>
+          <input type="password" placeholder="••••••••" required />
+        </label>
+        <button type="submit" class="btn btn-primary btn-block" id="auth-submit-btn">Đăng nhập</button>
+      </form>
+      <div class="auth-divider"><span>hoặc tiếp tục với</span></div>
+      <div class="social-login">
+        <button class="social-btn"><i class="fa-brands fa-google"></i> Google</button>
+        <button class="social-btn"><i class="fa-brands fa-github"></i> GitHub</button>
+        <button class="social-btn"><i class="fa-brands fa-facebook"></i> Facebook</button>
+      </div>
+    </div>
+  </div>
 
-    <button id="next">
-        ❯
+  <!-- ============================================================
+       UPLOAD PROJECT MODAL
+  ============================================================= -->
+  <div class="modal-overlay" id="upload-modal-overlay">
+    <div class="modal upload-modal">
+      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="modal-heading"><i class="fa-solid fa-cloud-arrow-up"></i> Upload Source Code</h3>
+      <form class="upload-form" id="upload-form">
+        <label class="field">
+          <span>Tên dự án</span>
+          <input type="text" placeholder="VD: Developer Portfolio" required />
+        </label>
+        <div class="field-row">
+          <label class="field">
+            <span>Danh mục</span>
+            <select required>
+              <option value="">Chọn danh mục</option>
+              <option value="website">Website Template</option>
+              <option value="landing">Landing Page</option>
+              <option value="game">Game Source</option>
+              <option value="tool">Developer Tool</option>
+              <option value="ai">AI Project</option>
+              <option value="app">App Source</option>
+              <option value="ui">UI Template</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Giá bán (VNĐ)</span>
+            <input type="number" placeholder="99000" min="0" required />
+          </label>
+        </div>
+        <label class="field">
+          <span>Mô tả</span>
+          <textarea rows="3" placeholder="Mô tả ngắn về sản phẩm của bạn..." required></textarea>
+        </label>
+        <label class="field file-field">
+          <span>Ảnh preview</span>
+          <div class="file-drop">
+            <i class="fa-solid fa-image"></i>
+            <span>Kéo thả ảnh hoặc bấm để chọn</span>
+            <input type="file" accept="image/*" />
+          </div>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block">Đăng sản phẩm</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       DONATE / SUPPORT MODAL
+  ============================================================= -->
+  <div class="modal-overlay" id="donate-modal-overlay">
+    <div class="modal donate-modal">
+      <button class="modal-close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+      <h3 class="modal-heading"><i class="fa-solid fa-mug-hot"></i> Support DHCODE</h3>
+      <p class="donate-text">Nếu bạn thấy sản phẩm hữu ích, một ly cà phê sẽ giúp mình có thêm động lực làm nhiều dự án mới hơn ☕</p>
+      <div class="donate-qr">
+        <div class="qr-placeholder"><i class="fa-solid fa-qrcode"></i></div>
+      </div>
+      <div class="donate-info">
+        <div class="donate-row"><span>Ngân hàng</span><strong>ACB</strong></div>
+        <div class="donate-row"><span>Chủ tài khoản</span><strong>Doan Hoang</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CONTACT FLOAT BUTTON
+  ============================================================= -->
+  <div class="float-contact" id="float-contact">
+    <div class="float-menu" id="float-menu">
+      <a href="#" class="float-item" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#" class="float-item" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="#" class="float-item" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#" class="float-item" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <button class="float-avatar" id="float-avatar">
+      <span class="pulse-ring"></span>
+      <i class="fa-solid fa-headset"></i>
     </button>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= ALL PRODUCTS ================= -->
-
-
-<section>
-
-
-<h2 class="section-title">
-
-    Tất cả mẫu
-
-</h2>
-
-
-
-
-<div id="products">
-
-
-<!-- JS render -->
-
-
-
-</div>
-
-
-
-
-
-<div id="pagination">
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ================= PRODUCT MODAL ================= -->
-
-
-<div id="product-modal">
-
-
-<div class="modal">
-
-
-<button id="close-modal">
-
-×
-
-
-</button>
-
-
-
-
-<h2 id="modal-title">
-
-</h2>
-
-
-
-<img id="modal-image">
-
-
-
-<p id="modal-description">
-
-</p>
-
-
-
-<p>
-
-Tác giả:
-
-<span id="modal-author">
-
-</span>
-
-</p>
-
-
-
-
-
-<div class="modal-buttons">
-
-
-<a id="demo-btn">
-
-<i class="fa-solid fa-globe"></i>
-
-Xem demo
-
-</a>
-
-
-
-<a id="download-btn">
-
-<i class="fa-solid fa-download"></i>
-
-Download
-
-</a>
-
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ================= DONATE ================= -->
-
-
-
-<div id="donate-modal">
-
-
-<div class="donate-box">
-
-
-<button id="close-donate">
-
-×
-</button>
-
-
-
-<h2>
-
-Ủng hộ mình ❤️
-
-</h2>
-
-
-
-<p>
-Ngân hàng:
-<strong>
-ACB
-</strong>
-</p>
-
-
-<p>
-STK:
-<strong>
-42515647
-</strong>
-</p>
-
-
-
-<img src="./assets/qr.png">
-
-
-
-<p>
-Cảm ơn bạn đã ủng hộ website.
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- ================= CONTACT ================= -->
-
-
-
-<div id="contact">
-
-
-<div id="contact-links">
-
-
-<a href="#">
-<i class="fa-brands fa-facebook"></i>
-Facebook
-</a>
-
-
-
-<a href="#">
-<i class="fa-brands fa-tiktok"></i>
-TikTok
-</a>
-
-
-
-<a href="#">
-<i class="fa-solid fa-comment"></i>
-Zalo
-</a>
-
-
-
-</div>
-
-
-
-
-<div id="avatar">
-
-
-<img src="./assets/avatar.png">
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<footer>
-
-
-© 2026 Lovely ❤️  
-<br>
-
-Made with passion
-
-
-</footer>
-
-
-
-
-
-
-
-<!-- JS -->
-
-
-<script src="./js/products.js"></script>
-
-<script src="./js/main.js"></script>
-
-
-
+  </div>
+
+  <button class="support-btn" id="support-btn"><i class="fa-solid fa-mug-hot"></i> Support</button>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================= -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name"><i class="fa-solid fa-code"></i> DHCODE</span>
+        <p>Premium Source Code Marketplace</p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Sản phẩm</h4>
+          <a href="#">Website Template</a>
+          <a href="#">Landing Page</a>
+          <a href="#">AI Project</a>
+          <a href="#">UI Template</a>
+        </div>
+        <div class="footer-col">
+          <h4>DHCODE</h4>
+          <a href="#">Về chúng tôi</a>
+          <a href="#">Liên hệ</a>
+          <a href="#">Điều khoản</a>
+        </div>
+      </div>
+
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Doan Hoang. All rights reserved.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/main.js"></script>
 </body>
-
-
 </html>
