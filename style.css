@@ -9,7 +9,109 @@ body {
     background: #f5f7fb;
     color: #222;
 }
+/* ===== NAVBAR ===== */
 
+.navbar{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 80px;
+
+    background:white;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+
+}
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    color:#ff4d8d;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#ff4d8d;
+
+}
+
+.nav-btn{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.login-btn{
+
+    padding:10px 22px;
+
+    border:2px solid #ff4d8d;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    color:#ff4d8d;
+
+    font-weight:600;
+
+}
+
+.register-btn{
+
+    padding:10px 22px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:linear-gradient(45deg,#ff4d8d,#ff7eb3);
+
+    color:white;
+
+    font-weight:600;
+
+}
 /* ===== Container chuẩn ===== */
 .container {
     max-width: 1200px;
