@@ -588,3 +588,220 @@ draw();
 
 
 });
+// ==========================
+// MUSIC
+// ==========================
+
+
+const music =
+document.getElementById("music");
+
+
+const musicBtn =
+document.getElementById("music-btn");
+
+
+
+let playing=false;
+
+
+
+musicBtn.onclick=()=>{
+
+
+if(!playing){
+
+
+music.play();
+
+
+musicBtn.innerHTML="🔊";
+
+
+}
+
+else{
+
+
+music.pause();
+
+
+musicBtn.innerHTML="🎵";
+
+
+}
+
+
+
+playing=!playing;
+
+
+
+};
+
+
+
+
+
+
+// ==========================
+// HEART EFFECT
+// ==========================
+
+
+function createHeart(){
+
+
+let heart=
+document.createElement("div");
+
+
+
+heart.className="heart";
+
+
+heart.innerHTML="❤️";
+
+
+
+heart.style.left=
+Math.random()*100+"vw";
+
+
+
+heart.style.fontSize=
+(
+Math.random()*20+15
+)+"px";
+
+
+
+document
+.getElementById("hearts")
+.appendChild(heart);
+
+
+
+
+
+setTimeout(()=>{
+
+
+heart.remove();
+
+
+},6000);
+
+
+
+}
+
+
+
+setInterval(
+createHeart,
+800
+);
+
+
+
+
+
+
+
+
+// ==========================
+// HOT CAROUSEL AUTO
+// ==========================
+
+
+let position=0;
+
+
+
+const carousel=
+document.getElementById(
+"hot-products"
+);
+
+
+
+setInterval(()=>{
+
+
+position-=220;
+
+
+
+if(
+Math.abs(position)
+>
+carousel.scrollWidth
+)
+
+position=0;
+
+
+
+carousel.style.transform=
+`
+translateX(${position}px)
+`;
+
+
+
+},2500);
+
+
+
+
+
+
+
+
+// ==========================
+// LOGIN UI
+// ==========================
+
+
+
+// sau này thay bằng Firebase
+
+
+function login(){
+
+
+let email=
+document.getElementById(
+"email"
+).value;
+
+
+
+let pass=
+document.getElementById(
+"password"
+).value;
+
+
+
+if(email && pass){
+
+
+alert(
+"Đăng nhập thành công"
+);
+
+
+}
+
+
+}
+
+
+
+document
+.getElementById(
+"login-btn"
+)
+.onclick=login;
